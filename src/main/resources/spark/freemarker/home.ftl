@@ -27,18 +27,34 @@
         var heatmap;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
+                zoom: 14,
                 center: {lat: 43.084430, lng: -77.676170},
-                mapTypeId: 'satellite'
+                mapTypeId: 'roadmap'
             });
 
 
-            heatmap = new google.maps.visualization.HeatmapLayer({
-                data: getPoints(),
-                map: map
+            // heatmap = new google.maps.visualization.HeatmapLayer({
+            //     data: getPoints(),
+            //     map: map
+            // });
+
+            var flightPlanCoordinates = [
+                {lat: 43.084430, lng: -77.678},
+                {lat: 43.084430, lng: -77.676},
+                {lat: 43.084, lng: -77.674}
+            ];
+
+            var flightPath = new google.maps.Polyline({
+                path: flightPlanCoordinates,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                map : map
             });
         }
         function getPoints() {
+
             return [new google.maps.LatLng(43.084430, -77.676170),
                 new google.maps.LatLng(43.084430, -77.676)];
         }
