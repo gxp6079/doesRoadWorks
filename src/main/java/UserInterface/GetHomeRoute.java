@@ -14,6 +14,7 @@ public class GetHomeRoute implements Route {
 
     public Object handle(Request request, Response response) throws Exception {
         HashMap<String, Object> vm = new HashMap<String, Object>();
-        return templateEngine.render(new ModelAndView(vm, ""));
+        vm.put("title", "Home");
+        return templateEngine.render(new ModelAndView(vm, "home.ftl"));
     }
 }

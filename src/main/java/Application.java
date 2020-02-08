@@ -1,11 +1,8 @@
 import UserInterface.WebServer;
 import com.google.gson.Gson;
+import freemarker.template.Configuration;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
-
-import java.io.InputStream;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 
 /**
@@ -14,7 +11,7 @@ import java.util.logging.Logger;
  * @author <a href='mailto:bdbvse@rit.edu'>Bryan Basham</a>
  */
 public final class Application {
-    private static final Logger LOG = Logger.getLogger(Application.class.getName());
+//    private static final Logger LOG = Logger.getLogger(Application.class.getName());
 
     //
     // Application Launch method
@@ -34,9 +31,9 @@ public final class Application {
     public static void main(String[] args) {
         // initialize Logging
         try {
-            ClassLoader classLoader = Application.class.getClassLoader();
-            final InputStream logConfig = classLoader.getResourceAsStream("log.properties");
-            LogManager.getLogManager().readConfiguration(logConfig);
+//            ClassLoader classLoader = Application.class.getClassLoader();
+//            final InputStream logConfig = classLoader.getResourceAsStream("log.properties");
+//            LogManager.getLogManager().readConfiguration(logConfig);
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Could not initialize log manager because: " + e.getMessage());
@@ -45,7 +42,9 @@ public final class Application {
         // The application uses FreeMarker templates to generate the HTML
         // responses sent back to the client. This will be the engine processing
         // the templates and associated data.
-        final TemplateEngine templateEngine = new FreeMarkerEngine();
+        Configuration configuration = new Configuration();
+        configuration.setClassForTemplateLoading(Application.class, "/spark/freemarker/");
+        final TemplateEngine templateEngine = new FreeMarkerEngine(configuration);
 
         // The application uses Gson to generate JSON representations of Java objects.
         // This should be used by your Ajax Routes to generate JSON for the HTTP
@@ -84,14 +83,14 @@ public final class Application {
     //
 
     private void initialize() {
-        LOG.config("WebCheckers is initializing.");
+//        LOG.config("WebCheckers is initializing.");
 
         // configure Spark and startup the Jetty web server
         webServer.initialize();
 
         // other applications might have additional services to configure
 
-        LOG.config("WebCheckers initialization complete.");
+//        LOG.config("WebCheckers initialization complete.");
     }
 
 }
