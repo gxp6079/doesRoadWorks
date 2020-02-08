@@ -61,7 +61,10 @@ public class BasicOSMParser {
 					try {
 						exporter.export(parser.parse(input), output);
 						System.out.println("Exported data to "+output.getPath()+" without errors.");
-					} catch (IOException | SAXException e) {
+					} catch (IOException e) {
+						System.err.println("Error during data export.");
+						e.printStackTrace();
+					} catch (SAXException e) {
 						System.err.println("Error during data export.");
 						e.printStackTrace();
 					}
