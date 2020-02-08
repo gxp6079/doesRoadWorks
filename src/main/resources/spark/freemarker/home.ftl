@@ -27,7 +27,7 @@
         var heatmap;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
+                zoom: 15,
                 center: {lat: 43.084430, lng: -77.676170},
                 mapTypeId: 'roadmap'
             });
