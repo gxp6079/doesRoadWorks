@@ -1,4 +1,4 @@
-package main.UserInterface;
+package UserInterface;
 
 public class TempUIClassToPushDir {
 }

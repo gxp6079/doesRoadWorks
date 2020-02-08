@@ -1,4 +1,4 @@
-package main.ControlLogic;
+package ControlLogic;
 
 public class CLI {
 
