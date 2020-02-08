@@ -5,11 +5,7 @@ import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
 
-/**
- * The entry point for the WebCheckers web application.
- *
- * @author <a href='mailto:bdbvse@rit.edu'>Bryan Basham</a>
- */
+
 public final class Application {
 //    private static final Logger LOG = Logger.getLogger(Application.class.getName());
 
@@ -17,18 +13,12 @@ public final class Application {
     // Application Launch method
     //
 
-    /**
-     * Entry point for the WebCheckers web application.
-     *
-     * <p>
-     * It wires the application components together.  This is an example
-     * of <a href='https://en.wikipedia.org/wiki/Dependency_injection'>Dependency Injection</a>
-     * </p>
-     *
-     * @param args
-     *    Command line arguments; none expected.
-     */
+
+
     public static void main(String[] args) {
+
+        final String API_KEY = args[0];
+
         // initialize Logging
         try {
 //            ClassLoader classLoader = Application.class.getClassLoader();
@@ -52,7 +42,7 @@ public final class Application {
         final Gson gson = new Gson();
 
         // inject the game center and freemarker engine into web server
-        final WebServer webServer = new WebServer(templateEngine, gson);
+        final WebServer webServer = new WebServer(templateEngine, gson, API_KEY);
 
         // inject web server into application
         final Application app = new Application(webServer);
@@ -90,7 +80,6 @@ public final class Application {
 
         // other applications might have additional services to configure
 
-//        LOG.config("WebCheckers initialization complete.");
     }
 
 }

@@ -33,5 +33,6 @@
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.5" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.21" level="project" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

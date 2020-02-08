@@ -14,13 +14,15 @@ public class WebServer {
 
     private final TemplateEngine templateEngine;
     private final Gson gson;
+    public static String API_KEY;
 
-    public WebServer(final TemplateEngine templateEngine, final Gson gson){
+    public WebServer(final TemplateEngine templateEngine, final Gson gson, final String API_KEY){
 //        Objects.ensureNotNull(templateEngine);
 //        Objects.ensureNotNull(gson);
 
         this.templateEngine = templateEngine;
         this.gson = gson;
+        this.API_KEY = API_KEY;
     }
 
     public void initialize(){
