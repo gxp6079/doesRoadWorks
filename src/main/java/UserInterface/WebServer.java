@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 //import com.webcheckers.appl.GameCenter;
 //import com.webcheckers.appl.PlayerLobby;
 
-import jdk.internal.joptsimple.internal.Objects;
 import spark.TemplateEngine;
 
 import javax.xml.bind.ValidationEvent;
@@ -23,14 +22,14 @@ public class WebServer {
     private final Gson gson;
 
     public WebServer(final TemplateEngine templateEngine, final Gson gson){
-        Objects.ensureNotNull(templateEngine);
-        Objects.ensureNotNull(gson);
+//        Objects.ensureNotNull(templateEngine);
+//        Objects.ensureNotNull(gson);
 
         this.templateEngine = templateEngine;
         this.gson = gson;
     }
 
-    private void initialize(){
+    public void initialize(){
         staticFileLocation("/public");
 
         get(HOME_URL, new GetHomeRoute(templateEngine));
