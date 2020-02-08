@@ -115,19 +115,15 @@ public class OSMParser extends DefaultHandler {
 	 */
 	private String getId(String type, String ref) {
 		String result = null;
-		
-		switch(type) {
-			case "node":
-				result="N"+ref;
-				break;
-			case "way":
-				result="W"+ref;
-				break;
-			case "relation":
-				result="R"+ref;
-				break;
-			default:
-				throw new RuntimeException("Unknown element type: "+type);
+
+		if ("node".equals(type)) {
+			result = "N" + ref;
+		} else if ("way".equals(type)) {
+			result = "W" + ref;
+		} else if ("relation".equals(type)) {
+			result = "R" + ref;
+		} else {
+			throw new RuntimeException("Unknown element type: " + type);
 		}
 		
 		return result;
@@ -257,16 +253,13 @@ public class OSMParser extends DefaultHandler {
 			//If member isn't contained in data, create stub object
 			Element elemMember = null;
 			if(!elements.containsKey(refMember)) {
-				switch(attributes.getValue("type")) {
-					case "node":
-						elemMember = new Node(Long.parseLong(attributes.getValue("ref")), 0, 0);
-						break;
-					case "way":
-						elemMember = new Way(Long.parseLong(attributes.getValue("ref")));
-						break;
-					case "relation":
-						elemMember = new Relation(Long.parseLong(attributes.getValue("ref")));
-						break;
+				String type = attributes.getValue("type");
+				if ("node".equals(type)) {
+					elemMember = new Node(Long.parseLong(attributes.getValue("ref")), 0, 0);
+				} else if ("way".equals(type)) {
+					elemMember = new Way(Long.parseLong(attributes.getValue("ref")));
+				} else if ("relation".equals(type)) {
+					elemMember = new Relation(Long.parseLong(attributes.getValue("ref")));
 				}
 			} else {
 				elemMember = elements.get(refMember);
