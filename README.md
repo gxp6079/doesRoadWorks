@@ -2,6 +2,6 @@
 
 ## Authors:
 - Reese AE Jones
-- 
+- Ryan Bryla
 -
 -
