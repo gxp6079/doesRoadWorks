@@ -32,7 +32,9 @@ public class PostNewBoundariesRoute implements Route {
                                      Double.parseDouble(request.queryParams("north")));
         if (in != null) {
             ArrayList<ryanParsing.Way> ways = ryanParsing.MainParser.parseInputStream(in);
+            GetHomeRoute.updateWays(ways);
         }
+
 
         response.redirect(WebServer.HOME_URL);
         return null;
