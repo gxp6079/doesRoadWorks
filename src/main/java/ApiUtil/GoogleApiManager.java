@@ -4,10 +4,8 @@ package ApiUtil;
 import org.json.JSONObject;
 
 import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
 
-public class GoogleApiManager {
+public class GoogleApiManager extends ApiManager {
 
     private final static String apiKeyFile = "res/APIKey.secret";
     private static String apiKey = null;
@@ -30,11 +28,15 @@ public class GoogleApiManager {
 
     public static JSONObject makeRequest( GoogleDistanceRequest req ) throws IOException {
 
-        URL url = new URL( req.toString() );
-        URLConnection urlConnection = url.openConnection();
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(
+                    new InputStreamReader(getInputStream(req)));
+        } catch ( Exception e ) {
+            System.err.println(e);
+            return null;
+        }
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(urlConnection.getInputStream()));
         String inputLine;
         StringBuffer response = new StringBuffer();
         while ((inputLine = in.readLine()) != null) {
