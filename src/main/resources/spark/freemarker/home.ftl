@@ -25,7 +25,7 @@
     <script>
         var map;
         var heatmap;
-        function initMap() {
+        function initMap(wayArr) {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 15,
                 center: {lat: 43.084430, lng: -77.676170},
@@ -33,25 +33,36 @@
             });
 
 
-            // heatmap = new google.maps.visualization.HeatmapLayer({
-            //     data: getPoints(),
-            //     map: map
-            // });
-
             var flightPlanCoordinates = [
                 {lat: 43.084430, lng: -77.678},
                 {lat: 43.084430, lng: -77.676},
                 {lat: 43.084, lng: -77.674}
             ];
+            console.log("test test test");
+            console.log("len: " + wayArr.length);
+            for (i = 0; i < wayArr.length; i++) {
+                flightPlanCoordinates = [];
+                var way = wayArr[i].intersections;
+                for (j = 0; j < way.length; j++) {
+                    var node = way[j];
+                    //console.log(node.lat + ", " + node.lon);
+                    flightPlanCoordinates.push({lat:node.lat , lng:node.lon})
+                }
 
-            var flightPath = new google.maps.Polyline({
-                path: flightPlanCoordinates,
-                geodesic: true,
-                strokeColor: '#FF0000',
-                strokeOpacity: 1.0,
-                strokeWeight: 2,
-                map : map
-            });
+                var flightPath = new google.maps.Polyline({
+                    path: flightPlanCoordinates,
+                    geodesic: true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2,
+                    map : map
+                });
+            }
+
+
+
+
+
         }
         function getPoints() {
 
@@ -59,7 +70,7 @@
                 new google.maps.LatLng(43.084430, -77.676)];
         }
 
-        initMap()
+        initMap(${wayList})
     </script>
 </body>
 

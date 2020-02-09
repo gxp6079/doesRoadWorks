@@ -1,9 +1,12 @@
 import UserInterface.WebServer;
 import com.google.gson.Gson;
 import freemarker.template.Configuration;
+import ryanParsing.MainParser;
+import ryanParsing.Way;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
+import java.util.ArrayList;
 
 
 public final class Application {
@@ -18,6 +21,23 @@ public final class Application {
     public static void main(String[] args) {
 
         final String API_KEY = args[0];
+        String osmFile;
+
+        try {
+            osmFile = args[1];
+        } catch (Exception e) {
+            osmFile = null;
+        }
+        ArrayList<Way> ways;
+
+        try {
+            System.out.println("Parsing " + osmFile);
+            ways = MainParser.parseFileName(osmFile);
+            System.out.println("Success");
+        } catch (Exception e) {
+            System.out.println("Failed");
+            ways = new ArrayList<Way>();
+        }
 
         // initialize Logging
         try {
@@ -42,7 +62,7 @@ public final class Application {
         final Gson gson = new Gson();
 
         // inject the game center and freemarker engine into web server
-        final WebServer webServer = new WebServer(templateEngine, gson, API_KEY);
+        final WebServer webServer = new WebServer(templateEngine, gson, API_KEY, ways);
 
         // inject web server into application
         final Application app = new Application(webServer);

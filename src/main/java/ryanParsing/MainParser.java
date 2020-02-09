@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,26 +20,38 @@ public class MainParser {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         String filename = args[0];
 
-        parseFile(filename);
+        ArrayList<Way> a = parseFileName(filename);
+
+        System.out.println(a.size());
 
     }
 
 
+    public static ArrayList<Way> parseInputStream(InputStream inputStream) throws ParserConfigurationException, IOException, SAXException {
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(inputStream);
 
+        return parseWithDoc(doc);
+    }
 
-    public static ArrayList<Way> parseFile(String filename) throws ParserConfigurationException, IOException, SAXException{
+    public static ArrayList<Way> parseFileName(String filename) throws ParserConfigurationException, IOException, SAXException {
         File xmlFile = new File(filename);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(xmlFile);
 
+        return parseWithDoc(doc);
+    }
+
+    private static ArrayList<Way> parseWithDoc(Document doc) {
 
         doc.getDocumentElement().normalize();
 
         HashMap<Long, Node> nodes = new HashMap<Long, Node>();
 
         NodeList nList = doc.getElementsByTagName("node");
-        System.out.println(nList.getLength());
+        //System.out.println(nList.getLength());
 
         for (int i = 0; i < nList.getLength(); i++) {
             org.w3c.dom.Node curr = nList.item(i);
