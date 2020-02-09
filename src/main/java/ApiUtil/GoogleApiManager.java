@@ -11,12 +11,7 @@ public class GoogleApiManager extends ApiManager {
     private static String apiKey = null;
 
     public static void main(String[] args) {
-        GoogleDistanceRequest req = new GoogleDistanceRequest();
-
-        req.addOriginParam(41.43206,-81.38992);
-        req.addDestinationParam(-33.86748,151.20699);
-        req.addKeyParam( getApiKey() );
-        req.compileRequest();
+        GoogleDistanceRequest req = new GoogleDistanceRequest( 41.43206, -81.38992, -33.86748, 151.20699, getApiKey());
 
         System.out.println( req.toString() );
         try {
