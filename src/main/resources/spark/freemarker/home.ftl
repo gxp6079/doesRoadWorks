@@ -76,7 +76,7 @@
                 var flightPath = new google.maps.Polyline({
                     path: flightPlanCoordinates,
                     geodesic: true,
-                    strokeColor: '#FF0000',
+                    strokeColor: '#00FF00',
                     strokeOpacity: 1.0,
                     strokeWeight: 2,
                     map : map
