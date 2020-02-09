@@ -1,5 +1,11 @@
 package ryanParsing;
 
+import ApiUtil.GoogleApiManager;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -13,6 +19,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class MainParser {
 
@@ -176,7 +184,37 @@ public class MainParser {
             if (!bad) {
                 if (speed != null) {
                     int intspeed = Integer.parseInt(speed.split(" ")[0]);
-                    for (Way way:waysToAddIfGood) way.setSpeed(intspeed);
+
+                    for (Way way:waysToAddIfGood) {
+                        way.setSpeed(intspeed);
+                        JSONObject json = GoogleApiManager.generateAndMakeDistanceRequest(way.getstartx(), way.getstarty(), way.getendx(), way.getendy());
+                        //{"destination_addresses":["114 W 29th St, New York, NY 10001, USA"],
+// "rows":[{"elements":[{"duration":{"text":"1 min","value":27},
+// "distance":{"text":"230 ft","value":70},"status":"OK"}]}],
+// "origin_addresses":["6 Avenue & 29 St, New York, NY 10001, USA"],
+// "status":"OK"}
+                        JSONArray parentJa = (JSONArray) json.get("rows");
+                        JSONArray ja = (JSONArray) parentJa.get(0);
+
+                        Iterator itr2 = ja.iterator();
+
+                        while (itr2.hasNext())
+                        {
+                            Iterator<Map.Entry> itr1 = ((Map) itr2.next()).entrySet().iterator();
+                            while (itr1.hasNext()) {
+                                Map.Entry pair = itr1.next();
+                                System.out.println(pair.getKey() + " : " + pair.getValue());
+                            }
+                        }
+
+                        JsonParser jsonParser = new JsonParser();
+                        JsonElement jsonElement = jsonParser.parse(json.toString());
+                    }
+
+
+
+
+
                 }
                 ways.addAll(new ArrayList<>(waysToAddIfGood));
             }
