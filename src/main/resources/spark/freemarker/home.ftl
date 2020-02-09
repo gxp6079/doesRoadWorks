@@ -12,11 +12,12 @@
     <div class="row">
         <div class="container col s3">
 
-            <form>
+            <form id="submitForm" action="/newBoundaries" method="post">
                 <label class="" for="north">North</label><input disabled type="text" id="north" name="north"><br><br>
                 <label class="" for="south">South</label><input disabled type="text" id="south" name="south"><br><br>
                 <label class="" for="west">West</label><input disabled type="text" id="west" name="west"><br><br>
                 <label class="" for="east">East</label><input disabled type="text" id="east" name="east"><br><br>
+                <input class="btn" type="submit">
             </form>
         </div>
 
