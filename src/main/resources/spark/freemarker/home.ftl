@@ -32,10 +32,10 @@
         var map;
         var heatmap;
         var originalCoordinates = {
-            north: 40.753032,
-            south: 40.746822,
-            east: -73.991084,
-            west: -73.981423
+            north: 40.748,
+            south: 40.742,
+            east: -73.985,
+            west: -73.992
         };
 
         function initMap(wayArr) {
