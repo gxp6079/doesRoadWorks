@@ -21,9 +21,6 @@ public class WebServer {
     private ArrayList<Way> ways;
 
     public WebServer(final TemplateEngine templateEngine, final Gson gson, final String API_KEY, ArrayList<Way> ways){
-//        Objects.ensureNotNull(templateEngine);
-//        Objects.ensureNotNull(gson);
-
         this.templateEngine = templateEngine;
         this.gson = gson;
         this.API_KEY = API_KEY;

@@ -8,11 +8,3 @@ public class SegmentData {
     ArrayList<String> origin_addresses;
     String statis;
 }
-
-
-
-//{"destination_addresses":["114 W 29th St, New York, NY 10001, USA"],
-// "rows":[{"elements":[{"duration":{"text":"1 min","value":27},
-// "distance":{"text":"230 ft","value":70},"status":"OK"}]}],
-// "origin_addresses":["6 Avenue & 29 St, New York, NY 10001, USA"],
-// "status":"OK"}

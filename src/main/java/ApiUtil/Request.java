@@ -27,17 +27,6 @@ public abstract class Request {
         }
     }
 
-    /*public void addParam( String name, String val ) {
-        addParam( new StringBuilder(name).append("=").append(val).toString() );
-    }
-
-    private void addParam(String param) {
-        if( parameters.length() == 0 )
-            parameters.append(param);
-        else
-            parameters.append("&").append(param);
-    }*/
-
     public String toString() {
         return requestString.toString();
     }

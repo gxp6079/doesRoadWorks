@@ -10,13 +10,6 @@ import java.util.ArrayList;
 
 
 public final class Application {
-//    private static final Logger LOG = Logger.getLogger(Application.class.getName());
-
-    //
-    // Application Launch method
-    //
-
-
 
     public static void main(String[] args) {
 
@@ -39,16 +32,6 @@ public final class Application {
             ways = new ArrayList<Way>();
         }
 
-        // initialize Logging
-        try {
-//            ClassLoader classLoader = Application.class.getClassLoader();
-//            final InputStream logConfig = classLoader.getResourceAsStream("log.properties");
-//            LogManager.getLogManager().readConfiguration(logConfig);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Could not initialize log manager because: " + e.getMessage());
-        }
-
         // The application uses FreeMarker templates to generate the HTML
         // responses sent back to the client. This will be the engine processing
         // the templates and associated data.
@@ -61,7 +44,6 @@ public final class Application {
         // response to Ajax requests.
         final Gson gson = new Gson();
 
-        // inject the game center and freemarker engine into web server
         final WebServer webServer = new WebServer(templateEngine, gson, API_KEY, ways);
 
         // inject web server into application
@@ -82,9 +64,6 @@ public final class Application {
     //
 
     private Application(final WebServer webServer) {
-        // validation
-//        Objects.ensureNotNull(webServer);
-        //
         this.webServer = webServer;
     }
 
@@ -93,13 +72,8 @@ public final class Application {
     //
 
     private void initialize() {
-//        LOG.config("WebCheckers is initializing.");
-
         // configure Spark and startup the Jetty web server
         webServer.initialize();
-
-        // other applications might have additional services to configure
-
     }
 
 }

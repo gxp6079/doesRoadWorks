@@ -15,7 +15,6 @@ public class GetHomeRoute implements Route {
     public final TemplateEngine templateEngine;
     private static ArrayList<Way> ways;
 
-
     public GetHomeRoute(final TemplateEngine templateEngine, ArrayList<Way> ways){
         this.templateEngine = templateEngine;
         this.ways = ways;
@@ -47,15 +46,8 @@ public class GetHomeRoute implements Route {
         Way[] wayArr = new Way[ways.size()];
         wayArr = ways.toArray(wayArr);
 
-        System.out.println("Way length: " + ways.size());
         vm.put("wayList", new Gson().toJson(wayArr));
         return templateEngine.render(new ModelAndView(vm, "home.ftl"));
-    }
-
-
-
-    public static void updateWays(ArrayList<Way> ways) {
-        GetHomeRoute.ways = ways;
     }
 
     public static void updateWays(InputStream osm) throws Exception{

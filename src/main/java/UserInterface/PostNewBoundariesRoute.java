@@ -20,7 +20,6 @@ public class PostNewBoundariesRoute implements Route {
     }
 
     public Object handle(Request request, Response response) throws Exception {
-        System.out.println(request.queryParams("north"));
         request.session().attribute("north", request.queryParams("north"));
         request.session().attribute("south", request.queryParams("south"));
         request.session().attribute("west", request.queryParams("west"));
@@ -30,11 +29,8 @@ public class PostNewBoundariesRoute implements Route {
                                      Double.parseDouble(request.queryParams("south")),
                                      Double.parseDouble(request.queryParams("east")),
                                      Double.parseDouble(request.queryParams("north")));
-        if (in != null) {
-            ArrayList<ryanParsing.Way> ways = ryanParsing.MainParser.parseInputStream(in);
-            GetHomeRoute.updateWays(ways);
-        }
-
+        if (in != null)
+            GetHomeRoute.updateWays(in);
 
         response.redirect(WebServer.HOME_URL);
         return null;

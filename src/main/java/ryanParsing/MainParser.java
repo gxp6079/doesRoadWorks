@@ -30,8 +30,6 @@ public class MainParser {
 
         ArrayList<Way> a = parseFileName(filename);
 
-        System.out.println(a.size());
-
     }
 
 
@@ -60,7 +58,6 @@ public class MainParser {
         HashMap<Long, Integer> goodNodes = new HashMap<Long, Integer>();
 
         NodeList nList = doc.getElementsByTagName("node");
-        //System.out.println(nList.getLength());
 
         // CHECK IF BAD WORD
         NodeList wayNodes = doc.getElementsByTagName("way");
@@ -117,7 +114,6 @@ public class MainParser {
                 }
             }
         }
-
 
         ArrayList<Way> ways = new ArrayList<Way>();
 
@@ -190,11 +186,7 @@ public class MainParser {
                     for (Way way:waysToAddIfGood) {
                         way.setSpeed(intspeed);
                         JSONObject json = GoogleApiManager.generateAndMakeDistanceRequest(way.getstartx(), way.getstarty(), way.getendx(), way.getendy());
-                        //{"destination_addresses":["114 W 29th St, New York, NY 10001, USA"],
-// "rows":[{"elements":[{"duration":{"text":"1 min","value":27},
-// "distance":{"text":"230 ft","value":70},"status":"OK"}]}],
-// "origin_addresses":["6 Avenue & 29 St, New York, NY 10001, USA"],
-// "status":"OK"}
+
                         Gson gson = new Gson();
                         SegmentData obj = gson.fromJson(json.toString(), SegmentData.class);
 
@@ -207,7 +199,6 @@ public class MainParser {
 
                         double delta = way.isGood();
                         deltas.add(delta);
-                        //System.out.println(delta);
                     }
 
 
@@ -224,7 +215,6 @@ public class MainParser {
         sum /= deltas.size();
         for (Way way : ways) {
             double temp = way.isGood(sum);
-            System.out.println(temp);
         }
 
         return ways;
