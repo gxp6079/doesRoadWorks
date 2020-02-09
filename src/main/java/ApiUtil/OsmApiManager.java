@@ -1,7 +1,5 @@
 package ApiUtil;
 
-import jdk.internal.util.xml.impl.Input;
-import org.eclipse.jetty.util.IO;
 
 import java.io.*;
 
@@ -21,6 +19,18 @@ public class OsmApiManager extends ApiManager {
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
         }
+    }
+
+    public InputStream generateAndMakeRequest( double left, double bottom, double right, double top ) {
+        OSMRequest req = new OSMRequest( left, bottom, right, top );
+        InputStream inputStream = null;
+        try {
+            inputStream = makeRequest(req);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println( "[ERROR] Encountered and I/O problem while accessing OpenStreetMap API" );
+        }
+        return inputStream;
     }
 
     public InputStream makeRequest(OSMRequest r) throws IOException {
