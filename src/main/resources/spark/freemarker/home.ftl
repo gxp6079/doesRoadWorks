@@ -77,11 +77,11 @@
                     //console.log(node.lat + ", " + node.lon);
                     flightPlanCoordinates.push({lat:node.lat , lng:node.lon})
                 }
-
+                var curColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
                 var flightPath = new google.maps.Polyline({
                     path: flightPlanCoordinates,
                     geodesic: true,
-                    strokeColor: '#00FF00',
+                    strokeColor: curColor,
                     strokeOpacity: 1.0,
                     strokeWeight: 2,
                     map : map
