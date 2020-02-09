@@ -1,4 +1,4 @@
-package UserInterface;
+package main.java.UserInterface;
 
 import com.google.gson.Gson;
 import ryanParsing.MainParser;

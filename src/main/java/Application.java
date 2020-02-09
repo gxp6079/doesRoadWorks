@@ -1,8 +1,10 @@
-import UserInterface.WebServer;
+package main.java;
+
 import com.google.gson.Gson;
 import freemarker.template.Configuration;
 import ryanParsing.MainParser;
 import ryanParsing.Way;
+import main.java.UserInterface.WebServer;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
