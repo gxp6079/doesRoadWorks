@@ -1,3 +1,4 @@
 .idea/*
 *.class
 /res/*.secret
+GoogleAPIKey

@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
     <title>Does Road Works?</title>
+    <link rel="icon" href="/src/main/resources/public/DoesRoadWorksIcon.ico" type="image/icon">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/materialize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,17 +19,17 @@
                 <label class="" for="west">West</label><input readonly type="text" id="west" name="west"><br><br>
                 <label class="" for="east">East</label><input readonly type="text" id="east" name="east"><br><br>
                 <input class="btn" type="submit">
-                <output></output>
             </form>
 
 
             <textarea readonly style="margin-top: 5vh" class="z-depth-1" id="dataField"></textarea>
+
+
+            <input id="hideSquare" class="btn" onclick="showRemove()" type="button" style="margin-left: 1vh" value="Toggle Selection Area">
         </div>
 
         <div id="map" name="map" class="col s9 z-depth-1"></div>
     </div>
-
-    <input id="hideSquare" class="btn" onclick="showRemove()" type="button" style="margin-left: 1vh" value="Toggle Selection Area">
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=visualization">
