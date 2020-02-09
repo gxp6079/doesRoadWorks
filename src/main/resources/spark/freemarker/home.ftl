@@ -13,12 +13,16 @@
         <div class="container col s3">
 
             <form id="submitForm" action="/newBoundaries" method="post">
-                <label class="" for="north">North</label><input type="text" id="north" name="north"><br><br>
-                <label class="" for="south">South</label><input type="text" id="south" name="south"><br><br>
-                <label class="" for="west">West</label><input type="text" id="west" name="west"><br><br>
-                <label class="" for="east">East</label><input type="text" id="east" name="east"><br><br>
+                <label class="" for="north">North</label><input readonly type="text" id="north" name="north"><br><br>
+                <label class="" for="south">South</label><input readonly type="text" id="south" name="south"><br><br>
+                <label class="" for="west">West</label><input readonly type="text" id="west" name="west"><br><br>
+                <label class="" for="east">East</label><input readonly type="text" id="east" name="east"><br><br>
                 <input class="btn" type="submit">
+                <output></output>
             </form>
+
+
+            <textarea readonly style="margin-top: 5vh" class="z-depth-1" id="dataField"></textarea>
         </div>
 
         <div id="map" name="map" class="col s9 z-depth-1"></div>
