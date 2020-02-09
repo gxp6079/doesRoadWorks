@@ -47,25 +47,48 @@
             west: -77.70
         };
 
-        function initMap() {
+        function initMap(wayArr) {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
+                zoom: 15,
                 center: {lat: 43.084430, lng: -77.676170},
-                mapTypeId: 'satellite'
+                mapTypeId: 'roadmap'
             });
 
 
-            heatmap = new google.maps.visualization.HeatmapLayer({
-                data: getPoints(),
-                map: map
-            });
+            var flightPlanCoordinates = [];
+            console.log("test test test");
+            console.log("len: " + wayArr.length);
+            for (i = 0; i < wayArr.length; i++) {
+                flightPlanCoordinates = [];
+                var way = wayArr[i].nodes;
+                for (j = 0; j < way.length; j++) {
+                    var node = way[j];
+                    //console.log(node.lat + ", " + node.lon);
+                    flightPlanCoordinates.push({lat:node.lat , lng:node.lon})
+                }
+
+                var flightPath = new google.maps.Polyline({
+                    path: flightPlanCoordinates,
+                    geodesic: true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2,
+                    map : map
+                });
+            }
+
+
+
+
+
         }
         function getPoints() {
+
             return [new google.maps.LatLng(43.084430, -77.676170),
                 new google.maps.LatLng(43.084430, -77.676)];
         }
 
-        initMap()
+        initMap(${wayList})
 
         var draggablePolygon = new google.maps.Rectangle({
             map: map,
