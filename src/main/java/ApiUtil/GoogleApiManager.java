@@ -21,7 +21,18 @@ public class GoogleApiManager extends ApiManager {
         }
     }
 
-    public static JSONObject makeRequest( GoogleDistanceRequest req ) throws IOException {
+    public static JSONObject generateAndMakeDistanceRequest( double originX, double originY, double destX, double destY ) {
+        GoogleDistanceRequest req = new GoogleDistanceRequest( originX, originY, destX, destY, getApiKey());
+        JSONObject json = null;
+        try {
+          json = makeRequest( req );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+
+    public static JSONObject makeRequest( Request req ) throws IOException {
 
         BufferedReader in = null;
         try {

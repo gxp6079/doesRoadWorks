@@ -28,6 +28,14 @@ public class Node {
         return this.occurences;
     }
 
+    public double getLatitude() {
+        return lat;
+    }
+
+    public double getLongitude() {
+        return lon;
+    }
+
     @Override
     public String toString() {
         return "ID: " + this.id + "Occ: " + occurences;

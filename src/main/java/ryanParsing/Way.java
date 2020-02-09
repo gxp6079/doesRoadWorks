@@ -11,4 +11,12 @@ public class Way {
         this.nodes = nodes;
         this.intersections = intersections;
     }
+
+    public ArrayList<Node> getNodes() {
+        return this.nodes;
+    }
+
+    public ArrayList<Node> getIntersections() {
+        return this.intersections;
+    }
 }

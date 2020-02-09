@@ -16,8 +16,4 @@ public class GoogleDistanceRequest extends Request {
                 .append("&key=").append(key);
         addSection(parameters.toString());
     }
-
-    public String toString() {
-        return super.toString();
-    }
 }
