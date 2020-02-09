@@ -99,8 +99,14 @@
                         strokeColor: color,
                         strokeOpacity: 1.0,
                         strokeWeight: 2,
-                        map: map
+                        map: map,
+                        way: way
                     });
+
+                    flightPath.addListener("click", function () {
+                        document.getElementById("dataField").value = "Expected Time: " + flightPath.way.expectedTime.toString() + "seconds\n Real Time: " + flightPath.way.givenTime +
+                        "seconds";
+                    })
                 }
 
             }
