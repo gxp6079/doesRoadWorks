@@ -59,7 +59,7 @@
                 var flightPath = new google.maps.Polyline({
                     path: flightPlanCoordinates,
                     geodesic: true,
-                    strokeColor: '#FF0000',
+                    strokeColor: '#00FF00',
                     strokeOpacity: 1.0,
                     strokeWeight: 2,
                     map : map
@@ -70,11 +70,6 @@
 
 
 
-        }
-        function getPoints() {
-
-            return [new google.maps.LatLng(43.084430, -77.676170),
-                new google.maps.LatLng(43.084430, -77.676)];
         }
 
         initMap(${wayList})
