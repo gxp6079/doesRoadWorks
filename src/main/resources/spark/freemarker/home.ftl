@@ -58,6 +58,11 @@
                 originalCoordinates.south = ${south};
                 originalCoordinates.west = ${west};
                 originalCoordinates.east = ${east};
+
+                document.getElementById("north").value = ${north};
+                document.getElementById("south").value = ${south};
+                document.getElementById("west").value = ${west};
+                document.getElementById("east").value = ${east};
             }
 
 
