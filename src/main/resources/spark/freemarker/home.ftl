@@ -3,26 +3,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
     <title>Does Road Works?</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/materialize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/js/nav-bar.js"></script>
 </head>
 <body>
 <img class="page">
+    <div class="row">
+        <div class="container col s3">
 
-    <div>
-
-    <form id="submitForm" action="/newBoundaries" method="post">
-        <button id="submitBtn" type="submit">Submit</button>
-        <div id="myDropdown" class="dropdown-content">
-            <label for="north">North</label> <input type="text" id="north" name="north"><br><br>
-            <label for="south">South</label> <input type="text" id="south" name="south"><br><br>
-            <label for="west">West</label> <input type="text" id="west" name="west"><br><br>
-            <label for="east">East</label> <input type="text" id="east" name="east"><br><br>
+            <form>
+                <label class="" for="north">North</label><input disabled type="text" id="north" name="north"><br><br>
+                <label class="" for="south">South</label><input disabled type="text" id="south" name="south"><br><br>
+                <label class="" for="west">West</label><input disabled type="text" id="west" name="west"><br><br>
+                <label class="" for="east">East</label><input disabled type="text" id="east" name="east"><br><br>
+            </form>
         </div>
-    </form>
-    </div>
 
-    <div id="map" name="map"></div>
+        <div id="map" name="map" class="col s9 z-depth-1"></div>
+    </div>
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=visualization">
