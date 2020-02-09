@@ -13,6 +13,12 @@ public class Node {
         this.id = id;
     }
 
+    public Node(double lat, double lon, long id, int occurences) {
+        this.lat = lat;
+        this.lon = lon;
+        this.id = id;
+        this.occurences = occurences;
+    }
 
     public void addOccurences() {
         this.occurences++;

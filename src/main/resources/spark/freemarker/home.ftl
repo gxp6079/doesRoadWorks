@@ -33,11 +33,7 @@
             });
 
 
-            var flightPlanCoordinates = [
-                {lat: 43.084430, lng: -77.678},
-                {lat: 43.084430, lng: -77.676},
-                {lat: 43.084, lng: -77.674}
-            ];
+            var flightPlanCoordinates = [];
             console.log("test test test");
             console.log("len: " + wayArr.length);
             for (i = 0; i < wayArr.length; i++) {
