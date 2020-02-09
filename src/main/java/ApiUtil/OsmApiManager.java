@@ -21,7 +21,7 @@ public class OsmApiManager extends ApiManager {
         }
     }
 
-    public InputStream generateAndMakeRequest( double left, double bottom, double right, double top ) {
+    public static InputStream generateAndMakeRequest( double left, double bottom, double right, double top ) {
         OSMRequest req = new OSMRequest( left, bottom, right, top );
         InputStream inputStream = null;
         try {
@@ -33,7 +33,7 @@ public class OsmApiManager extends ApiManager {
         return inputStream;
     }
 
-    public InputStream makeRequest(OSMRequest r) throws IOException {
+    public static InputStream makeRequest(OSMRequest r) throws IOException {
         return getInputStream(r);
     }
 }
