@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de822105-4f7c-46f3-b893-886bea8acbb8" name="Default Changelist" comment="Added Materialize to stylize the website.">
+    <list default="true" id="de822105-4f7c-46f3-b893-886bea8acbb8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/spark/freemarker/home.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/freemarker/home.ftl" afterDir="false" />
     </list>
@@ -152,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581244827592</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Re-added submit functionality">
+      <created>1581245819134</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1581245819134</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +181,7 @@
     <MESSAGE value="maven actually works now" />
     <MESSAGE value="An arraylist of ways is retrieved for GetHomeRequest" />
     <MESSAGE value="Added Materialize to stylize the website." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Materialize to stylize the website." />
+    <MESSAGE value="Re-added submit functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Re-added submit functionality" />
   </component>
 </project>
