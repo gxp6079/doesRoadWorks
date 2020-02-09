@@ -1,18 +1,18 @@
 body {
-  background: #CAECFF;
+  background: #b9f9cb;
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 14px;
 }
 
 div.page {
   background: white;
-  border: 1px solid #6ECCFF;
+  border: 1px solid #66a477;
   width: 710px;
   margin: 30px auto;
 }
 
 div.page h1 {
-  background: #6ECCFF;
+  background: #66a477;
   margin: 0;
   padding: 10px 14px;
   color: black;
@@ -23,9 +23,10 @@ div.page h1 {
 
 #map{
   position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 100vh;
+  right: 1vw;
+  top: 1vh;
+  bottom: 1vh;
+  height: 98vh;
   width: 80vw;
 }
 
@@ -40,7 +41,7 @@ div.page h1 {
 
 #submitBtn{
   position: absolute;
-  background-color: #6392f1;
+  background-color: #12b071;
   border: none;
   color: white;
   cursor: pointer;
