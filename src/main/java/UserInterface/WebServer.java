@@ -5,13 +5,13 @@ import static spark.Spark.*;
 import com.google.gson.Gson;
 
 
-import main.java.UserInterface.GetHomeRoute;
 import spark.TemplateEngine;
 
 public class WebServer {
 //    public static final Logger LOG = Logger.getLogger(WebServer.class.getName());
 
     public static final String HOME_URL = "/";
+    public static final String POST_BOUND = "/newBoundaries";
 
     private final TemplateEngine templateEngine;
     private final Gson gson;
@@ -29,6 +29,7 @@ public class WebServer {
     public void initialize(){
         staticFileLocation("/public");
         get(HOME_URL, new GetHomeRoute(templateEngine));
+        post(POST_BOUND, new PostNewBoundariesRoute());
     }
 
 }

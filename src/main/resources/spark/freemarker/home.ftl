@@ -9,16 +9,27 @@
 <body>
 <img class="page">
 
-    <div class="dropdown">
+<#--    <div class="dropdown">-->
+<#--        <div id="myDropdown" class="dropdown-content">-->
+<#--            <label for="north">North</label> <input type="text" id="north" name="north"><br><br>-->
+<#--            <label for="south">South</label> <input type="text" id="south" name="south"><br><br>-->
+<#--            <label for="west">West</label> <input type="text" id="west" name="west"><br><br>-->
+<#--            <label for="east">East</label> <input type="text" id="east" name="east"><br><br>-->
+<#--        </div>-->
+<#--    </div>-->
+
+    <div>
+
+    <form id="submitForm" action="/newBoundaries" method="post">
+        <button id="submitBtn" type="submit">Submit</button>
         <div id="myDropdown" class="dropdown-content">
             <label for="north">North</label> <input type="text" id="north" name="north"><br><br>
             <label for="south">South</label> <input type="text" id="south" name="south"><br><br>
             <label for="west">West</label> <input type="text" id="west" name="west"><br><br>
             <label for="east">East</label> <input type="text" id="east" name="east"><br><br>
         </div>
+    </form>
     </div>
-
-    <button id="submit">Submit</button>
 
     <div id="map"></div>
 

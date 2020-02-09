@@ -38,18 +38,19 @@ div.page h1 {
   z-index: 1;
 }
 
-#submit{
+#submitBtn{
   position: absolute;
   background-color: #6392f1;
   border: none;
   color: white;
+  cursor: pointer;
   width: 50px;
   height: 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 10px;
-  cursor: pointer;
+  z-index: 4;
   left: 280px;
   top: 90px;
 }
