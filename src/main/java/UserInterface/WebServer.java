@@ -1,7 +1,8 @@
-package main.java.UserInterface;
+package UserInterface;
 
 import static spark.Spark.*;
 
+import UserInterface.GetHomeRoute;
 import com.google.gson.Gson;
 
 
@@ -29,7 +30,7 @@ public class WebServer {
     public void initialize(){
         staticFileLocation("/public");
         get(HOME_URL, new GetHomeRoute(templateEngine));
-        post(POST_BOUND, new PostNewBoundariesRoute());
+        post(POST_BOUND, new main.java.UserInterface.PostNewBoundariesRoute());
     }
 
 }

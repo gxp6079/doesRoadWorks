@@ -65,7 +65,6 @@
                 new google.maps.LatLng(43.084430, -77.676)];
         }
 
-
         initMap()
 
         var draggablePolygon = new google.maps.Rectangle({

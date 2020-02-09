@@ -1,4 +1,4 @@
-package main.java.UserInterface;
+package UserInterface;
 
 import spark.*;
 
