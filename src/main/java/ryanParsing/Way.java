@@ -6,6 +6,10 @@ public class Way {
     private ArrayList<Node> nodes;
     private ArrayList<Node> intersections;
     private int speed;
+    private int expectedTime;
+    private double distance; // miles
+    private int givenTime;
+    private boolean isGood = false;
 
 
 
@@ -46,7 +50,37 @@ public class Way {
         return this.intersections.get(1).getLongitude();
     }
 
+    public int getExpectedTime() {
+        this.expectedTime = (int) (((distance/5280)/speed)*3600);
+        return (int) (((distance/5280)/speed)*3600);
+    }
+
+    public int getGivenTime() {
+        return givenTime;
+    }
+
+    public void setGivenTime(int givenTime) {
+        this.givenTime = givenTime;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
 
 
+    public double isGood() {
+        this.isGood = givenTime <= getExpectedTime();
+        return givenTime - getExpectedTime();
+    }
+
+    public double isGood(double average) {
+        double delta = givenTime - getExpectedTime();
+        this.isGood = delta < average;
+        return givenTime - average;
+    }
 
 }

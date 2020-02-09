@@ -124,6 +124,8 @@ public class MainParser {
         ArrayList<Node> currWayNodes = new ArrayList<Node>();
         ArrayList<Node> currWayIntersections = new ArrayList<Node>();
 
+        ArrayList<Double> deltas = new ArrayList<>();
+
         for (int i = 0; i < wayNodes.getLength(); i++) {
             NodeList childNodes = wayNodes.item(i).getChildNodes();
             currWayNodes.clear();
@@ -195,8 +197,17 @@ public class MainParser {
 // "status":"OK"}
                         Gson gson = new Gson();
                         SegmentData obj = gson.fromJson(json.toString(), SegmentData.class);
-                        JsonParser jsonParser = new JsonParser();
-                        JsonElement jsonElement = jsonParser.parse(json.toString());
+
+
+                        Double distance = Double.parseDouble(obj.rows.get(0).elements.get(0).distance.value);
+                        int time = Integer.parseInt(obj.rows.get(0).elements.get(0).duration.get("value"));
+
+                        way.setDistance(distance);
+                        way.setGivenTime(time);
+
+                        double delta = way.isGood();
+                        deltas.add(delta);
+                        //System.out.println(delta);
                     }
 
 
@@ -206,6 +217,14 @@ public class MainParser {
                 }
                 ways.addAll(new ArrayList<>(waysToAddIfGood));
             }
+        }
+
+        double sum = 0;
+        for (double d:deltas) sum+=d;
+        sum /= deltas.size();
+        for (Way way : ways) {
+            double temp = way.isGood(sum);
+            System.out.println(temp);
         }
 
         return ways;

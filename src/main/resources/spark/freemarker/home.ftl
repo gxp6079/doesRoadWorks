@@ -83,16 +83,21 @@
                     flightPlanCoordinates.push({lat:node.lat , lng:node.lon})
                 }
 
-                var color = (!way.speed) ? '#FF0000' : '#00FF00';
 
-                var flightPath = new google.maps.Polyline({
-                    path: flightPlanCoordinates,
-                    geodesic: true,
-                    strokeColor: color,
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2,
-                    map: map
-                });
+
+                if (way.speed) {
+
+                    var color = (way.isGood) ? '#00FF00' : '#FF0000';
+
+                    var flightPath = new google.maps.Polyline({
+                        path: flightPlanCoordinates,
+                        geodesic: true,
+                        strokeColor: color,
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                        map: map
+                    });
+                }
 
             }
         }
