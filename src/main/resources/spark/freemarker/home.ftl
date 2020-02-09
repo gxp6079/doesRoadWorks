@@ -32,10 +32,10 @@
         var map;
         var heatmap;
         var originalCoordinates = {
-            north: 43.10,
-            south: 43.05,
-            east: -77.64,
-            west: -77.70
+            north: 40.753032,
+            south: 40.746822,
+            east: -73.991084,
+            west: -73.981423
         };
 
         function initMap(wayArr) {
@@ -43,7 +43,7 @@
             if(north == 0){
                 map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 15,
-                    center: {lat: 43.084430, lng: -77.676170},
+                    center: {lat: 40.753032, lng: -73.991084},
                     mapTypeId: 'roadmap'
                 });
             }
