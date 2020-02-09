@@ -9,15 +9,6 @@
 <body>
 <img class="page">
 
-<#--    <div class="dropdown">-->
-<#--        <div id="myDropdown" class="dropdown-content">-->
-<#--            <label for="north">North</label> <input type="text" id="north" name="north"><br><br>-->
-<#--            <label for="south">South</label> <input type="text" id="south" name="south"><br><br>-->
-<#--            <label for="west">West</label> <input type="text" id="west" name="west"><br><br>-->
-<#--            <label for="east">East</label> <input type="text" id="east" name="east"><br><br>-->
-<#--        </div>-->
-<#--    </div>-->
-
     <div>
 
     <form id="submitForm" action="/newBoundaries" method="post">
@@ -31,7 +22,7 @@
     </form>
     </div>
 
-    <div id="map"></div>
+    <div id="map" name="map"></div>
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=visualization">
@@ -48,11 +39,26 @@
         };
 
         function initMap(wayArr) {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: {lat: 43.084430, lng: -77.676170},
-                mapTypeId: 'roadmap'
-            });
+            var north = ${north};
+            if(north == 0){
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: {lat: 43.084430, lng: -77.676170},
+                    mapTypeId: 'roadmap'
+                });
+            }
+            else{
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: {lat: (${north} + ${south})/2, lng: (${west} + ${east})/2},
+                    mapTypeId: 'roadmap'
+                });
+
+                originalCoordinates.north = ${north};
+                originalCoordinates.south = ${south};
+                originalCoordinates.west = ${west};
+                originalCoordinates.east = ${east};
+            }
 
 
             var flightPlanCoordinates = [];
@@ -76,16 +82,6 @@
                     map : map
                 });
             }
-
-
-
-
-
-        }
-        function getPoints() {
-
-            return [new google.maps.LatLng(43.084430, -77.676170),
-                new google.maps.LatLng(43.084430, -77.676)];
         }
 
         initMap(${wayList})
