@@ -30,12 +30,12 @@ div.page h1 {
 }
 
 
-.dropdown-content {
+#myDropdown {
   position: absolute;
   top: 50px;
-  left: 20px;
-  min-width: 20vw;
-  z-index: 1;
+  left: 2vw;
+  max-width: 15vw;
+  min-width: 10vw;
 }
 
 #submitBtn{
@@ -51,8 +51,8 @@ div.page h1 {
   display: inline-block;
   font-size: 10px;
   z-index: 4;
-  left: 280px;
-  top: 90px;
+  left: 15vw;
+  top: 10vh;
 }
 
 
