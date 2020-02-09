@@ -38,7 +38,7 @@
             console.log("len: " + wayArr.length);
             for (i = 0; i < wayArr.length; i++) {
                 flightPlanCoordinates = [];
-                var way = wayArr[i].intersections;
+                var way = wayArr[i].nodes;
                 for (j = 0; j < way.length; j++) {
                     var node = way[j];
                     //console.log(node.lat + ", " + node.lon);

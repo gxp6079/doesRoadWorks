@@ -123,6 +123,8 @@ public class MainParser {
 
             boolean bad = false;
 
+            ArrayList<Way> waysToAddIfGood = new ArrayList<Way>();
+
 
             for (int j = 0; j< childNodes.getLength(); j++) {
                 org.w3c.dom.Node childNode = childNodes.item(j);
@@ -135,9 +137,23 @@ public class MainParser {
 
                     if (currNode.getOccurences() == 1) {
                         currWayNodes.add(currNode);
-                    } else if (currNode.getOccurences() > 1) {
-                        currWayNodes.add(currNode);
-                        currWayIntersections.add(currNode);
+                    } else if (currNode.getOccurences() > 1) { // intersection case
+                        if (currWayIntersections.isEmpty()) { // first intersection
+                            currWayNodes = new ArrayList<Node>(); // reset curr way nodes and add the current node to both
+                            currWayIntersections.add(currNode);
+                            currWayNodes.add(currNode);
+                        } else { //
+                            currWayNodes.add(currNode);
+                            currWayIntersections.add(currNode);
+                            Way wayToAdd = new Way(new ArrayList<Node>(currWayNodes), new ArrayList<Node>(currWayIntersections));
+                            waysToAddIfGood.add(wayToAdd);
+
+                            //make new lists
+                            currWayNodes = new ArrayList<Node>();
+                            currWayIntersections = new ArrayList<Node>();
+                            currWayNodes.add(currNode);
+                            currWayIntersections.add(currNode);
+                        }
                     }
                 } else if (childNode.getNodeName().equals("tag")) {
                     Element e = (Element) childNode;
@@ -153,7 +169,7 @@ public class MainParser {
                 }
             }
             if (!bad) {
-                ways.add(new Way(new ArrayList<Node>(currWayNodes), new ArrayList<Node>(currWayIntersections)));
+                ways.addAll(new ArrayList<Way>(waysToAddIfGood));
             }
         }
 
