@@ -2,7 +2,7 @@ package ApiUtil;
 
 public class OSMRequest extends Request {
 
-    private static final String OSM_URL_TEMPLATE = "/api/0.6/map?";
+    private static final String OSM_URL_TEMPLATE = "https://api.openstreetmap.org/api/0.6/map?";
 
     public OSMRequest(double left, double bottom, double right, double top) {
         super(OSM_URL_TEMPLATE);

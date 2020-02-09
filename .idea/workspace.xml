@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de822105-4f7c-46f3-b893-886bea8acbb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/OSMRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/OSMRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/OSMRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/OsmApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/OsmApiManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/Request.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.OsmApiManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="doesRoadWorks" />
@@ -97,6 +96,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OsmApiManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ApiUtil.OsmApiManager" />
+      <module name="doesRoadWorks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ApiUtil.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="home.ftl" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/doesRoadWorks/spark/freemarker/home.ftl" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -104,9 +116,11 @@
       <item itemvalue="Application.Application" />
       <item itemvalue="Application.GoogleApiManager" />
       <item itemvalue="JavaScript Debug.home.ftl" />
+      <item itemvalue="Application.OsmApiManager" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OsmApiManager" />
         <item itemvalue="Application.Application" />
         <item itemvalue="JavaScript Debug.home.ftl" />
         <item itemvalue="Application.GoogleApiManager" />
@@ -147,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581203809365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="OSMREquest added and implemented for OSMApiManager">
+      <created>1581229515043</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581229515043</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +189,7 @@
     <MESSAGE value="added pom.xml" />
     <MESSAGE value="maven actually works now" />
     <MESSAGE value="Parser is abandoned." />
-    <option name="LAST_COMMIT_MESSAGE" value="Parser is abandoned." />
+    <MESSAGE value="OSMREquest added and implemented for OSMApiManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="OSMREquest added and implemented for OSMApiManager" />
   </component>
 </project>
