@@ -17,7 +17,7 @@ public class OsmApiManager extends ApiManager {
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println(e.getStackTrace());
+            e.printStackTrace();
         }
     }
 
