@@ -2,7 +2,7 @@ package ApiUtil;
 
 public abstract class Request {
 
-    private StringBuilder requestString;
+    protected StringBuilder requestString;
 
     public Request( String  httpAddress ) {
         requestString = new StringBuilder( httpAddress );
@@ -26,6 +26,17 @@ public abstract class Request {
             requestString.append('?').append( section );
         }
     }
+
+    /*public void addParam( String name, String val ) {
+        addParam( new StringBuilder(name).append("=").append(val).toString() );
+    }
+
+    private void addParam(String param) {
+        if( parameters.length() == 0 )
+            parameters.append(param);
+        else
+            parameters.append("&").append(param);
+    }*/
 
     public String toString() {
         return requestString.toString();
