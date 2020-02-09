@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainParser {
@@ -18,7 +19,14 @@ public class MainParser {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         String filename = args[0];
 
+        parseFile(filename);
 
+    }
+
+
+
+
+    public static ArrayList<Way> parseFile(String filename) throws ParserConfigurationException, IOException, SAXException{
         File xmlFile = new File(filename);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -59,18 +67,35 @@ public class MainParser {
             }
         }
 
+        ArrayList<Way> ways = new ArrayList<Way>();
 
+        ArrayList<Node> currWayNodes = new ArrayList<Node>();
+        ArrayList<Node> currWayIntersections = new ArrayList<Node>();
 
+        for (int i = 0; i < wayNodes.getLength(); i++) {
+            NodeList childNodes = wayNodes.item(i).getChildNodes();
+            currWayNodes.clear();
+            currWayIntersections.clear();
+            for (int j = 0; j< childNodes.getLength(); j++) {
+                org.w3c.dom.Node childNode = childNodes.item(j);
+                if (childNode.getNodeName().equals("nd")) {
+                    Element e = (Element) childNode;
+                    long id = Long.parseLong(e.getAttribute("ref"));
+                    Node currNode = nodes.get(id);
+                    if (currNode.getOccurences() == 1) {
+                        currWayNodes.add(currNode);
+                    } else if (currNode.getOccurences() > 1) {
+                        currWayNodes.add(currNode);
+                        currWayIntersections.add(currNode);
+                    }
+                }
+            }
+            ways.add(new Way(new ArrayList<Node>(currWayNodes), new ArrayList<Node>(currWayIntersections)));
+        }
 
-
-
-
-
-
-
-
-
+        return ways;
     }
+
 
 
 

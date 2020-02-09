@@ -21,4 +21,9 @@ public class Node {
     public int getOccurences() {
         return this.occurences;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + this.id + "Occ: " + occurences;
+    }
 }

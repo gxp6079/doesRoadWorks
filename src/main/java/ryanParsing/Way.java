@@ -7,11 +7,8 @@ public class Way {
     private ArrayList<Node> intersections;
 
 
-    public Way(ArrayList<Node> nodes) {
+    public Way(ArrayList<Node> nodes, ArrayList<Node> intersections) {
         this.nodes = nodes;
+        this.intersections = intersections;
     }
-
-
-
-
 }
