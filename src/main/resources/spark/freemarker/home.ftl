@@ -71,21 +71,24 @@
             console.log("len: " + wayArr.length);
             for (i = 0; i < wayArr.length; i++) {
                 flightPlanCoordinates = [];
-                var way = wayArr[i].nodes;
-                for (j = 0; j < way.length; j++) {
-                    var node = way[j];
+                var way = wayArr[i];
+                for (j = 0; j < way.nodes.length; j++) {
+                    var node = way.nodes[j];
                     //console.log(node.lat + ", " + node.lon);
                     flightPlanCoordinates.push({lat:node.lat , lng:node.lon})
                 }
 
+                var color = (!way.speed) ? '#FF0000' : '#00FF00';
+
                 var flightPath = new google.maps.Polyline({
                     path: flightPlanCoordinates,
                     geodesic: true,
-                    strokeColor: '#00FF00',
+                    strokeColor: color,
                     strokeOpacity: 1.0,
                     strokeWeight: 2,
-                    map : map
+                    map: map
                 });
+
             }
         }
 

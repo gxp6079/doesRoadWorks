@@ -124,7 +124,7 @@ public class MainParser {
             boolean bad = false;
 
             ArrayList<Way> waysToAddIfGood = new ArrayList<Way>();
-
+            String speed = null;
 
             for (int j = 0; j< childNodes.getLength(); j++) {
                 org.w3c.dom.Node childNode = childNodes.item(j);
@@ -159,6 +159,11 @@ public class MainParser {
                     Element e = (Element) childNode;
                     String k = e.getAttribute("k");
                     String v = e.getAttribute("v");
+
+                    if (k.equals("maxspeed")) {
+                        speed = v;
+                    }
+
                     if (k.equals("highway") && (v.equals("footway") || v.equals("path"))) {
                         bad = true;
                         break;
@@ -169,7 +174,11 @@ public class MainParser {
                 }
             }
             if (!bad) {
-                ways.addAll(new ArrayList<Way>(waysToAddIfGood));
+                if (speed != null) {
+                    int intspeed = Integer.parseInt(speed.split(" ")[0]);
+                    for (Way way:waysToAddIfGood) way.setSpeed(intspeed);
+                }
+                ways.addAll(new ArrayList<>(waysToAddIfGood));
             }
         }
 
