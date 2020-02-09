@@ -2,7 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
     <title>Does Road Works?</title>
-    <link rel="icon" href="/src/main/resources/public/DoesRoadWorksIcon.ico" type="image/icon">
+    <link rel="icon" href="DoesRoadWorksIcon.ico" type="image/icon">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/materialize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -12,6 +12,12 @@
 <img class="page">
     <div class="row">
         <div class="container col s3">
+
+            <span style="font-size:1vw;display:inline-flex;text-align:center;vertical-align:center" class="center-align">
+                <img src="DoesRoadWorksPNG.png" alt="Does Road Works?" height="35vw" width="35vw" style="margin-left:0.5vw;margin-right:0.5vw">
+                <h5><b>Does Road Works?</b></h5>
+            </span>
+            <br><hr>
 
             <form id="submitForm" action="/newBoundaries" method="post">
                 <label class="" for="north">North</label><input readonly type="text" id="north" name="north"><br><br>
