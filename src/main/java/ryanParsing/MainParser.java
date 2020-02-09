@@ -193,20 +193,8 @@ public class MainParser {
 // "distance":{"text":"230 ft","value":70},"status":"OK"}]}],
 // "origin_addresses":["6 Avenue & 29 St, New York, NY 10001, USA"],
 // "status":"OK"}
-                        JSONArray parentJa = (JSONArray) json.get("rows");
-                        JSONArray ja = (JSONArray) parentJa.get(0);
-
-                        Iterator itr2 = ja.iterator();
-
-                        while (itr2.hasNext())
-                        {
-                            Iterator<Map.Entry> itr1 = ((Map) itr2.next()).entrySet().iterator();
-                            while (itr1.hasNext()) {
-                                Map.Entry pair = itr1.next();
-                                System.out.println(pair.getKey() + " : " + pair.getValue());
-                            }
-                        }
-
+                        Gson gson = new Gson();
+                        SegmentData obj = gson.fromJson(json.toString(), SegmentData.class);
                         JsonParser jsonParser = new JsonParser();
                         JsonElement jsonElement = jsonParser.parse(json.toString());
                     }
