@@ -1,3 +1,4 @@
+/* Manages all OSM API requests */
 package ApiUtil;
 
 
@@ -5,6 +6,10 @@ import java.io.*;
 
 public class OsmApiManager extends ApiManager {
 
+    /**
+     * Test function for connectivity
+     * @param args
+     */
     public static void main( String[] args ){
         OsmApiManager testManager = new OsmApiManager();
         try {
@@ -21,6 +26,14 @@ public class OsmApiManager extends ApiManager {
         }
     }
 
+    /**
+     * Retrieve Node and Way data given a bounding box using latitude/longitude
+     * @param left
+     * @param bottom
+     * @param right
+     * @param top
+     * @return XML document containing all Node and Way data
+     */
     public static InputStream generateAndMakeRequest( double left, double bottom, double right, double top ) {
         OSMRequest req = new OSMRequest( left, bottom, right, top );
         InputStream inputStream = null;
@@ -33,6 +46,12 @@ public class OsmApiManager extends ApiManager {
         return inputStream;
     }
 
+    /**
+     * Make request and retrieve OSM response
+     * @param
+     * @return InputStream to process OSM data received
+     * @throws IOException
+     */
     public static InputStream makeRequest(OSMRequest r) throws IOException {
         return getInputStream(r);
     }

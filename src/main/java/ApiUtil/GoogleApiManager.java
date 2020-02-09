@@ -1,3 +1,4 @@
+/* Controls all Google API requests */
 package ApiUtil;
 
 
@@ -13,6 +14,10 @@ public class GoogleApiManager extends ApiManager {
     private final static String apiKeyFile = "res/APIKey.secret";
     private static String apiKey = null;
 
+    /**
+     * Test function to determine connectivity with API
+     * @param args
+     */
     public static void main(String[] args) {
         GoogleDistanceRequest req1 = new GoogleDistanceRequest( 41.43206, -81.38992, -33.86748, 151.20699, getApiKey());
         ArrayList<Node> nodes = new ArrayList<Node>();
@@ -30,6 +35,14 @@ public class GoogleApiManager extends ApiManager {
         }
     }
 
+    /**
+     * Retrieve distance given two sets of coordinates
+     * @param originX
+     * @param originY
+     * @param destX
+     * @param destY
+     * @return JSONObject containing distance data
+     */
     public static JSONObject generateAndMakeDistanceRequest( double originX, double originY, double destX, double destY ) {
         GoogleDistanceRequest req = new GoogleDistanceRequest( originX, originY, destX, destY, getApiKey());
         JSONObject json = null;
@@ -41,17 +54,12 @@ public class GoogleApiManager extends ApiManager {
         return json;
     }
 
-    public static JSONObject generateAndMakeRoadRequest( Way way ) {
-        GoogleRoadRequest req = new GoogleRoadRequest( way, getApiKey());
-        JSONObject json = null;
-        try {
-            json = makeRequest( req );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return json;
-    }
-
+    /**
+     * Sends request, receives response as buffer
+     * @param req
+     * @return JSONObject containing data
+     * @throws IOException
+     */
     public static JSONObject makeRequest( Request req ) throws IOException {
 
         BufferedReader in = null;

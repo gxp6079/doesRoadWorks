@@ -1,3 +1,4 @@
+/* A way in OSM represents many things, for our purposes a road. */
 package ryanParsing;
 
 import java.util.ArrayList;

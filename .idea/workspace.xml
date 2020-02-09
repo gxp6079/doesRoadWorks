@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de822105-4f7c-46f3-b893-886bea8acbb8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/freemarker/home.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/freemarker/home.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/ApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/ApiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/GoogleApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/GoogleApiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/GoogleDistanceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/GoogleDistanceRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/GoogleRoadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/GoogleRoadRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/OSMRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/OSMRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/OsmApiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/OsmApiManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ApiUtil/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ApiUtil/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ryanParsing/Distance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ryanParsing/Distance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ryanParsing/Duration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ryanParsing/Duration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ryanParsing/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ryanParsing/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ryanParsing/SegmentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ryanParsing/SegmentData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ryanParsing/Way.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ryanParsing/Way.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

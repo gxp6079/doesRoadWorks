@@ -1,3 +1,4 @@
+/* Represents a point in geographical space. Used by OSM as points along a Way */
 package ryanParsing;
 
 public class Node {
@@ -13,6 +14,8 @@ public class Node {
         this.id = id;
     }
 
+    // An additional occurences field is used to determine if this node represents an intersection of ways
+    // An intersection is a node shared between ways
     public Node(double lat, double lon, long id, int occurences) {
         this.lat = lat;
         this.lon = lon;

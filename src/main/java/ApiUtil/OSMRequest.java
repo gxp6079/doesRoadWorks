@@ -1,9 +1,11 @@
+/* Explicit request structure for using OpenStreetMap api */
 package ApiUtil;
 
 public class OSMRequest extends Request {
 
     private static final String OSM_URL_TEMPLATE = "https://api.openstreetmap.org/api/0.6/map?";
 
+    // Bounding box queries are used to retrieve information within an area.
     public OSMRequest(double left, double bottom, double right, double top) {
         super(OSM_URL_TEMPLATE);
 

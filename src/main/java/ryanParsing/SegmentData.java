@@ -1,3 +1,4 @@
+/* A portion of a given way, identifiable as what portion of a given way falls inside a bounding box */
 package ryanParsing;
 
 import java.util.ArrayList;

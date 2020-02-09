@@ -1,3 +1,4 @@
+/* Explicit road request structure for Google's Map API */
 package ApiUtil;
 
 import ryanParsing.Node;
@@ -9,6 +10,11 @@ public class GoogleRoadRequest extends Request {
 
     private static final String API_CALL_TEMPLATE = "https://roads.googleapis.com/v1/speedLimits?";
 
+    /**
+     * Using OSM data, specific road info is retrieved from Google.
+     * @param way
+     * @param key
+     */
     public GoogleRoadRequest( Way way, String key ) {
         super(API_CALL_TEMPLATE);
         StringBuilder parameters = new StringBuilder("paths=");
