@@ -2,8 +2,11 @@ package ApiUtil;
 
 
 import org.json.JSONObject;
+import ryanParsing.Node;
+import ryanParsing.Way;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class GoogleApiManager extends ApiManager {
 
@@ -11,11 +14,17 @@ public class GoogleApiManager extends ApiManager {
     private static String apiKey = null;
 
     public static void main(String[] args) {
-        GoogleDistanceRequest req = new GoogleDistanceRequest( 41.43206, -81.38992, -33.86748, 151.20699, getApiKey());
+        GoogleDistanceRequest req1 = new GoogleDistanceRequest( 41.43206, -81.38992, -33.86748, 151.20699, getApiKey());
+        ArrayList<Node> nodes = new ArrayList<Node>();
+        nodes.add(new Node(43.08817, -77.66745, 1));
+        nodes.add(new Node(43.08809, -77.66782, 2));
+        GoogleRoadRequest req2 = new GoogleRoadRequest( new Way(nodes,nodes), getApiKey());
 
-        System.out.println( req.toString() );
+
+        System.out.println( req1.toString() );
         try {
-            System.out.println( makeRequest(req) );
+            //System.out.println( makeRequest(req1) );
+            System.out.println( makeRequest(req2) );
         } catch ( Exception e ) {
 
         }
@@ -26,6 +35,17 @@ public class GoogleApiManager extends ApiManager {
         JSONObject json = null;
         try {
           json = makeRequest( req );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+
+    public static JSONObject generateAndMakeRoadRequest( Way way ) {
+        GoogleRoadRequest req = new GoogleRoadRequest( way, getApiKey());
+        JSONObject json = null;
+        try {
+            json = makeRequest( req );
         } catch (IOException e) {
             e.printStackTrace();
         }
