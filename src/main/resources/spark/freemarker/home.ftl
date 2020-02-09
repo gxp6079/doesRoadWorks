@@ -46,6 +46,11 @@
                     center: {lat: 40.753032, lng: -73.991084},
                     mapTypeId: 'roadmap'
                 });
+
+                document.getElementById("north").value = originalCoordinates.north;
+                document.getElementById("south").value = originalCoordinates.south;
+                document.getElementById("west").value = originalCoordinates.west;
+                document.getElementById("east").value = originalCoordinates.east;
             }
             else{
                 map = new google.maps.Map(document.getElementById('map'), {
