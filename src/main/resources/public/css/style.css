@@ -4,47 +4,6 @@ body {
   font-size: 14px;
 }
 
-a {
-  color: #2677FF;
-}
-
-a:hover {
-  color: #333;
-}
-
-a[disabled] {
-  color: gray;
-  cursor: default;
-}
-
-form#signout {
-  display: inline;
-}
-
-input[type="text"],
-input[type="password"] {
-  background: white;
-  border: 1px solid #BFE6FF;
-  padding: 2px;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 14px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: #1057FF;
-}
-
-input[type="submit"] {
-  background: #1057FF;
-  border: 1px solid #073BFF;
-  padding: 1px 3px;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: white;
-}
-
 div.page {
   background: white;
   border: 1px solid #6ECCFF;
@@ -62,81 +21,47 @@ div.page h1 {
   font-weight: normal;
 }
 
-div.page div.navigation {
-  background: #DEE9FF;
-  padding: 4px 10px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #eee;
-  color: #888;
-  font-size: 12px;
-  letter-spacing: 0.5px;
+#map{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 80vw;
 }
 
-div.page div.navigation a {
-  color: #444;
-  font-weight: bold;
+
+.dropdown-content {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  min-width: 20vw;
+  z-index: 1;
 }
 
-div.page h2 {
-  margin: 0.5em 0 0.25em 0;
-  color: #1057FF;
-  text-shadow: 0 1px 2px #ccc;
+#submit{
+  position: absolute;
+  background-color: #6392f1;
+  border: none;
+  color: white;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  left: 280px;
+  top: 90px;
 }
 
-div.page h3 {
-  margin: 0.5em 0 0.25em 0;
-  color: #6ECCFF;
-  text-shadow: 0 1px 2px #ccc;
+
+label{
+  font-family: Verdana, Geneva, sans-serif;
 }
 
-div.page div.body {
-  padding: 10px;
+input{
+  position: absolute;
+  left: 50px;
 }
 
-div.page div.footer {
-  background: #eee;
-  color: #888;
-  padding: 5px 10px;
-  font-size: 12px;
-}
 
-/**
- * The styling of a Message with an ERROR type.
- */
-div.ERROR {
-  margin: 10px 0;
-  background: #FAE4E4;
-  border: 1px solid #DD6F6F;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  padding: 4px;
-  font-size: 13px;
-}
-
-/**
- * The styling of a Message with an INFO type.
- */
-div.INFO {
-  margin: 10px 0;
-  background: #FAFFE4;
-  border: 1px solid green;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  padding: 4px;
-  font-size: 13px;
-}
-
-.flex-container {
-  display: flex;
-  flex-flow: row wrap;
-}
-button.player {
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 10px;
-}
-button.game {
-  background-color: #fff1f1;
-  width: 100px;
-  margin: 10px;
-}

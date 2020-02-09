@@ -1,10 +1,11 @@
-package UserInterface;
+package main.java.UserInterface;
 
 import static spark.Spark.*;
 
 import com.google.gson.Gson;
 
 
+import main.java.UserInterface.GetHomeRoute;
 import spark.TemplateEngine;
 
 public class WebServer {
@@ -27,7 +28,6 @@ public class WebServer {
 
     public void initialize(){
         staticFileLocation("/public");
-
         get(HOME_URL, new GetHomeRoute(templateEngine));
     }
 
