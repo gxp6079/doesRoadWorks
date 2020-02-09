@@ -28,6 +28,8 @@
         <div id="map" name="map" class="col s9 z-depth-1"></div>
     </div>
 
+    <input id="hideSquare" class="btn" onclick="showRemove()" type="button" style="margin-left: 1vh" value="Toggle Selection Area">
+
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=visualization">
     </script>
@@ -104,7 +106,7 @@
                     });
 
                     flightPath.addListener("click", function () {
-                        document.getElementById("dataField").value = "Expected Time: " + flightPath.way.expectedTime.toString() + "seconds\n Real Time: " + flightPath.way.givenTime +
+                        document.getElementById("dataField").value = "Expected Time: " + this.way.expectedTime.toString() + "seconds\n Real Time: " + this.way.givenTime +
                         "seconds";
                     })
                 }
@@ -140,6 +142,26 @@
             document.getElementById("west").value = draggablePolygon.bounds.Ta.g.toString();
             document.getElementById("east").value = draggablePolygon.bounds.Ta.i.toString();
         });
+
+        function showRemove() {
+            if(draggablePolygon.map != null){
+                draggablePolygon.setMap(null);
+            }
+            else{
+                draggablePolygon = new google.maps.Rectangle({
+                    map: map,
+                    bounds: originalCoordinates,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#000000",
+                    fillOpacity: 0.35,
+                    draggable: true,
+                    geodesic: true,
+                    editable: true
+                });;
+            }
+        }
 
     </script>
 </body>
